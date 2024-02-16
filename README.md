@@ -1,4 +1,8 @@
-npm install vite
+
+# Windows Error
+Error: Cannot find module @rollup/rollup-win32-x64-msvc.
+
+npm install @rollup/rollup-win32-x64-msvc
 
 # Linux Error
 error while loading shared libraries: libnss3.so: cannot open shared object file: No such file or directory
