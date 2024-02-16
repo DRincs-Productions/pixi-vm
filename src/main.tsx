@@ -1,8 +1,8 @@
-import * as PIXI from 'pixi.js';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-import { showImage } from './lib/image.ts';
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+import { showImage } from './lib/image.ts'
+import * as PIXI from 'pixi.js'
 
 // Canvas setup with PIXI
 const canvas = document.body
@@ -32,5 +32,15 @@ app.stage.addChild(container);
 ReactDOM.createRoot(reactRoot).render(
     <App />
 )
+
+// Remove Preload scripts loading
+postMessage({ payload: 'removeLoading' }, '*')
+
+// Use contextBridge
+window.ipcRenderer.on('main-process-message', (_event, message) => {
+    console.log(message)
+})
+
+
 
 await showImage('https://pixijs.com/assets/bg_grass.jpg', container)
